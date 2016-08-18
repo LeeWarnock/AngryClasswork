@@ -37,10 +37,8 @@ db.on('error', function(err) {
 
 // 0: Root: Displays a simple "Hello World" message (no mongo required).
 app.get('/', function(req, res){
-	db.animals.find({},function (err, docs) {
-		console.log("Hello World!");
-	})
-})
+	res.send("Hello World!");
+});
 // 1: All: show every animal in a json
 app.get('/', function(req, res){
 	db.animals.find({},function (err, docs) {
