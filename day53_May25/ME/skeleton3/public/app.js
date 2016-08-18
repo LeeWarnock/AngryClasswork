@@ -3,7 +3,7 @@
  * ========================= */
 
 
-/* TODO: 
+/* TODO:
 
   1. Make an AJAX function for loading the table in index.html
   with the data from your animals collection in MongoDB.
@@ -14,7 +14,7 @@
       a. When the user clicks the Weight button, the table should
       display the animal data sorted by weight.
       b. When the user clicks the Name button, the table should
-      display the animal data sorted by name. 
+      display the animal data sorted by name.
 
   Good luck!
 */
