@@ -13,7 +13,7 @@ var cheerio = require('cheerio'); // Scrapes our html
 
 console.log("\n******************************************\n" +
             "Reads title and img link from reddit EDC \n" +
-            "\n******************************************\n")
+on            "\n******************************************\n")
 
 // Make a request call to grab the html body from the site of your choice
 // Notice: the page's html gets saved as the callback's third arg

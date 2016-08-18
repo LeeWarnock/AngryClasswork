@@ -4,14 +4,14 @@
 
 
 
-// Instructor: Here is the file that students will have tried 
-// to create in the last exercise. It's provided here 
+// Instructor: Here is the file that students will have tried
+// to create in the last exercise. It's provided here
 // for their convenience and to move things along.
 
 
-// Students: Your work is in the front-end. 
-// Run this server file with node/nodemon, 
-// then open public/app.js. 
+// Students: Your work is in the front-end.
+// Run this server file with node/nodemon,
+// then open public/app.js.
 
 // Get cracking and good luck!
 
@@ -28,13 +28,13 @@ app.use(express.static('public'));
 
 
 // 2. Database configuration
-// require mongojs, then save the url of our database 
+// require mongojs, then save the url of our database
 // as well as the name of our collection
 var mongojs = require('mongojs');
 var databaseUrl = "zoo";
 var collections = ["animals"];
 
-// use mongojs to hook the database to the db variable 
+// use mongojs to hook the database to the db variable
 var db = mongojs(databaseUrl, collections);
 
 // this makes sure that any errors are logged if mongodb runs into an issue
@@ -52,12 +52,12 @@ app.get('/', function(req, res) {
 
 // 2. At "/all", path, display every entry in the animals collection
 app.get('/all', function(req, res) {
-  // Query: In our database, go to the animals collection, then "find" everything 
+  // Query: In our database, go to the animals collection, then "find" everything
   db.animals.find({}, function(err, found) {
     // log any errors if the server encounters one
     if (err) {
       console.log(err);
-    } 
+    }
     // otherwise, send the result of this query to the browser
     else {
       res.json(found);
@@ -65,16 +65,16 @@ app.get('/all', function(req, res) {
   });
 });
 
-// 3. At "/name", path, display every entry in the animals collection, 
+// 3. At "/name", path, display every entry in the animals collection,
 // sorted by name
 app.get('/name', function(req, res) {
   // Query: In our database, go to the animals collection, then "find" everything,
-  // but this time, sort it by name (1 means ascending order) 
+  // but this time, sort it by name (1 means ascending order)
   db.animals.find().sort({name:1}, function(err, found) {
     // log any errors if the server encounters one
     if (err) {
       console.log(err);
-    } 
+    }
     // otherwise, send the result of this query to the browser
     else {
       res.json(found);
@@ -82,16 +82,16 @@ app.get('/name', function(req, res) {
   });
 });
 
-// 4. At "/weight", path, display every entry in the animals collection, 
+// 4. At "/weight", path, display every entry in the animals collection,
 // sorted by weight
 app.get('/weight', function(req, res) {
   // Query: In our database, go to the animals collection, then "find" everything,
-  // but this time, sort it by weight (-1 means descending order) 
+  // but this time, sort it by weight (-1 means descending order)
   db.animals.find().sort({weight:-1}, function(err, found) {
     // log any errors if the server encounters one
     if (err) {
       console.log(err);
-    } 
+    }
     // otherwise, send the result of this query to the browser
     else {
       res.json(found);
