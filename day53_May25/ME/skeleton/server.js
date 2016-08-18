@@ -11,6 +11,10 @@
 var request = require('request'); // Snatches html from urls
 var cheerio = require('cheerio'); // Scrapes our html
 
+console.log("\n******************************************\n" +
+            "Reads title and img link from reddit EDC \n" +
+            "\n******************************************\n")
+
 // Make a request call to grab the html body from the site of your choice
 // Notice: the page's html gets saved as the callback's third arg
 request('https://www.reddit.com/r/EDC/', function (error, response, html) {
