@@ -25,3 +25,4 @@ elseif ($age === 21)
   echo "Just slipped by! Sake! Sake! Sake!\n";
 else
   echo "No Sake for me :(\n";
+?>
