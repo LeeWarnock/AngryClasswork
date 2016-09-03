@@ -56,3 +56,7 @@ $response = $kernel->handle(
 $response->send();
 
 $kernel->terminate($request, $response);
+
+$users = User::all();
+
+return view('users', compact('users'));
