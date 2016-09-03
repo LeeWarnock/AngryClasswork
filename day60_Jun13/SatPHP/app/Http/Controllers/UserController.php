@@ -53,7 +53,7 @@ class UserController extends Controller
 var_export($user);
 
     }
-
+    return view('user', $user);
     /**
      * Show the form for editing the specified resource.
      *
