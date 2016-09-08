@@ -1,0 +1,3 @@
+rootProject.name = 'skeleton4'
+
+include ':app'
