@@ -26,6 +26,8 @@ class touchables extends Component {
   render() {
     return (
       /* Container for all rows */
+    //my addition below 
+    <TouchableOpacity onPress={this._onPressButton}>
       <View style={styles.container}>
 
         {/* Row 1 */}
@@ -47,6 +49,7 @@ class touchables extends Component {
             <Text style={styles.text}>4</Text>
           </View>
         </View>
+      </TouchableOpacity>
 
         {/* Row 2 */}
         <View style={styles.row}>
