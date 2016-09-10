@@ -9,7 +9,8 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  searchResults
 } from 'react-native';
 
 class OMDBproj extends Component {
