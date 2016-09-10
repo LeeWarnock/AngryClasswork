@@ -1,5 +1,5 @@
 /**
- * Form Exercise 
+ * Form Exercise (SOLUTION)
  **/
 
 import React, { Component } from 'react';
@@ -29,21 +29,20 @@ class form extends Component {
   // This will set our message to the input text
   // and then change input text to a blank string.
   _setMessage() {
-    // TODO
-    // ====
-    // Write the contents of this function. 
-    // It should set the message state to the value of the TextInput
-    // and set the TextInput's Value to a blank string.
+    this.setState({
+      message: this.state.inputText,
+      inputText: ''
+    })
   }
 
   // This will toggle the display of our message box.
   _toggleDisplay() {
     var revealed = this.state.revealed;
     this.setState({
-      // TODO
-      // ====
-      // Toggle the value of the state
-      // that controls whether the message is visible.
+      // The bang returns the negative of revealed.
+      // So if revealed is true, it becomes false, 
+      // and if it's false, it becomes true.
+      revealed: !revealed 
     })
   }
 
@@ -58,27 +57,25 @@ class form extends Component {
           <Text style={styles.headerText}>State Changer!</Text>
         </View>
 
-        {/* Our TextInput container.*/}
-
-        <View style={styles.i_container}>
-
-        {/* TODO
-          * ====
-          * Write out the TextInput component. 
-          * Make the value prop equal the inputText state.
-          * Set the placeholder prop to "Enter Message Here!".
-          * Setup the onTextChange prop to change the property
-          * of inputText to whatever characters the user enters.
-          *
-          * PROTIP: You'll find a rundown of the textInput component here!
-          * https://facebook.github.io/react-native/docs/textinput.html
-          * 
-          * Below, you'll find button that will set 
-          * the message state to the input box's value.
-          * You just need to write the function that alters the state.
-          *
+        {/* Our TextInput container. 
+          * Notice how whenever the text changes, 
+          * we change the inputText state, while the value of the box
+          * always correlates with that state. This way, 
+          * the text in the box and the inputText state always match.
           */}
 
+        <View style={styles.i_container}>
+          <TextInput 
+            style={styles.textInput} 
+            placeholder='Enter Text Here'
+            onChangeText={(text) => this.setState({inputText: text})}
+            value={this.state.inputText} 
+          />
+
+          {/* The setter button recieves the _setMessage function. 
+            * Notice how we need to bind 'this', so that the render function
+            * can access the state of its component. 
+            */}
           <TouchableOpacity style={styles.setter} onPress={this._setMessage.bind(this)}>
             <Text style={styles.setterText}>Submit</Text>
           </TouchableOpacity>
@@ -87,18 +84,24 @@ class form extends Component {
         {/* The Message Container */}
         <View style={styles.m_container}>
 
-          {/* TODO
-            * ====
-            * Create a Message Revealer button using TouchableOpacity.
-            * Connect the _toggleDisplay function to the onPress prop,
-            * and don't forget to add .bind(this) to the function call.
-            * Use styles.revealer for TouchableOpacity
-            * and styles.revealerText for the button's text.
-            *
-            * BONUS: Change the text of the button to match whether pressing it
-            * will reveal the message or hide it.
-            *
+          {/* The Revealer Button.
+            * Notice how it receieves the _toggleDisplay function. 
+            * Whenever the user presses the button, 
+            * the 'revealed' state changes its bool value.
             */}
+          <TouchableOpacity 
+            style={styles.revealer} 
+            onPress={this._toggleDisplay.bind(this)}
+          >
+            {/* If the revealed state is false, say 'Reveal the Message!' */}
+            {!this.state.revealed && (
+              <Text style={styles.revealerText}>Reveal the Message!</Text>
+            )}
+            {/* If the revealed state is true, say 'Hide the Message!' */}
+            {this.state.revealed && (
+              <Text style={styles.revealerText}>Hide the Message!</Text>
+            )}
+          </TouchableOpacity>
 
           {/* The Message Subcontainer (holds the actual message) */}
 
