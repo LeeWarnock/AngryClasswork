@@ -1,9 +1,9 @@
-class Charizard {
+class User {
   
   // 'public' means clients of this class can access these fields.
-  public $name = "Charizard";
-
-  public $species = "Flame Pokemon";
+  public $firstName = "Lee";
+  public $lastName = "Warnock";
+  public $lastName = "clwarnock@gmail.com";
 
   public $description = "Spits fire that is hot enough to melt boulders." . 
                         "Known to cause forest fires unintentionally.";
