@@ -45,6 +45,9 @@
 # 
 ###############################################################################
 
+
+##MY infinite loop 
+#while True:
 # Prompt user for student's identification information...
 first_name = input('Please enter the student\'s first name. ')
 last_name = input('Please enter the student\'s last name. ')
