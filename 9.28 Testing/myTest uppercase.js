@@ -2,19 +2,9 @@
 
 var should = require('chai').should(),
 
-  multiply = function (x, y) {
-    if (typeof x !== 'number' || typeof y !== 'number')
-      throw new Error('x or y is not a number.');
-    else
-      return x * y;
-  };
-
 describe('Multiply', function () {
-  it('should multiply properly when passed numbers', function () {
-    multiply(2, 4).should.equal(8);
+  it('Should test that name has been uppercased', function () {
+    disemvowel('mr. bean').should.equal('Mr. Bean');
   });
 
-  it('should throw when not passed numbers', function () {
-    (function() { multiply(2, "4") }).should.throw(Error);
-  });
 });
